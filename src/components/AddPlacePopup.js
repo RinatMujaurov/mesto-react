@@ -29,40 +29,33 @@ function AddPlacePopup(props) {
       isOpen={props.isOpen}
       onClose={props.onClose}
       onSubmit={handleSubmit}
-		buttonText={'Создать'}
-		children={
-			<>
-			  <label className='popup__field'>
-				 <input
-					type='text'
-					required
-					className='popup__input popup__input_data_title'
-					placeholder='Название'
-					name='input-title'
-					id='title-input'
-					minLength='2'
-					maxLength='30'
-					onChange={handleNameChange}
-					value={name}
-				 />
-				 <span className='popup__input-error title-input-error'></span>
-			  </label>
-			  <label className='popup__field'>
-				 <input
-					type='url'
-					required
-					className='popup__input popup__input_data_photo'
-					placeholder='Ссылка на картинку'
-					name='input-photo'
-					id='url-input'
-					onChange={handleLinkChange}
-					value={link}
-				 />
-				 <span className='popup__input-error url-input-error'></span>
-			  </label>
-			</>
-		 }
-    />
+      buttonText="Создать"
+    >
+        <input
+          type="text"
+          required
+          className="popup__input popup__input_data_title"
+          placeholder="Название"
+          name="input-title"
+          id="title-input"
+          minLength="2"
+          maxLength="30"
+          onChange={handleNameChange}
+          value={name}
+        />
+        <span className="popup__input-error title-input-error"></span>
+        <input
+          type="url"
+          required
+          className="popup__input popup__input_data_photo"
+          placeholder="Ссылка на картинку"
+          name="input-photo"
+          id="url-input"
+          onChange={handleLinkChange}
+          value={link}
+        />
+        <span className="popup__input-error url-input-error"></span>
+    </PopupWithForm>
   );
 }
 
