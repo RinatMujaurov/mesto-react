@@ -67,6 +67,13 @@ class Api {
     }).then((res) => this._getResponseData(res));
   }
 
+  changeLikeCardStatus(cardId, isLiked) {
+    if (!isLiked) {
+      return api.putLike(cardId);
+    }
+      return api.deleteLike(cardId);
+  }
+
   setAvatar(data) {
     return fetch(this._baseUrl + "/users/me/avatar", {
       method: "PATCH",
@@ -76,7 +83,7 @@ class Api {
   }
 }
 
-// export const api = new Api({
+// const api = new Api({
 //   url: `https://mesto.nomoreparties.co/v1/cohort-63`,
 //   headers: {
 //     authorization: 'cab53664-e4e9-4b11-babc-f697c128a306',
@@ -86,3 +93,4 @@ class Api {
 const api = new Api('https://mesto.nomoreparties.co/v1/cohort-63', 'cab53664-e4e9-4b11-babc-f697c128a306');
 
 export default api;
+
